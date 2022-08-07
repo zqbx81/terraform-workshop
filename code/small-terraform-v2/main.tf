@@ -15,14 +15,11 @@ module "vpc" {
     data.aws_availability_zones.available.names[1],
     data.aws_availability_zones.available.names[2],
   ]
-  public_subnets   = ["10.99.0.0/24", "10.99.1.0/24", "10.99.2.0/24"]
-  private_subnets  = ["10.99.3.0/24", "10.99.4.0/24", "10.99.5.0/24"]
-  database_subnets = ["10.99.7.0/24", "10.99.8.0/24", "10.99.9.0/24"]
-
-  enable_nat_gateway   = true
-  single_nat_gateway   = true
-  enable_dns_hostnames = true
-  enable_dns_support   = true
+  public_subnets = ["10.99.0.0/24", "10.99.1.0/24", "10.99.2.0/24"]
+  # enable_nat_gateway   = true
+  # single_nat_gateway   = true
+  # enable_dns_hostnames = true
+  # enable_dns_support   = true
 }
 
 data "aws_ami" "ubuntu" {
@@ -57,11 +54,7 @@ module "security_group" {
     {
       rule        = "https-443-tcp"
       cidr_blocks = "0.0.0.0/0"
-    },
-    {
-      rule        = "all-all"
-      cidr_blocks = module.vpc.vpc_cidr_block
-    },
+    }
   ]
 }
 
