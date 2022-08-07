@@ -1,3 +1,3 @@
-# output "ec2_public_ip" {
-#   value = join(" ", tolist(["ssh", join("", tolist(["ubuntu@", aws_instance.saltmaster.public_ip])), "-i", local_sensitive_file.ssh_key.filename]))
-# }
+output "web_url" {
+  value = join("", tolist(["http://", module.ec2.public_ip]))
+}

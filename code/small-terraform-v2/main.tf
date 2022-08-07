@@ -16,10 +16,6 @@ module "vpc" {
     data.aws_availability_zones.available.names[2],
   ]
   public_subnets = ["10.99.0.0/24", "10.99.1.0/24", "10.99.2.0/24"]
-  # enable_nat_gateway   = true
-  # single_nat_gateway   = true
-  # enable_dns_hostnames = true
-  # enable_dns_support   = true
 }
 
 data "aws_ami" "ubuntu" {
