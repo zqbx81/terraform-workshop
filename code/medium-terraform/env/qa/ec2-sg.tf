@@ -17,10 +17,6 @@ module "security_group" {
     {
       rule        = "https-443-tcp"
       cidr_blocks = "0.0.0.0/0"
-    },
-    {
-      rule        = "all-all"
-      cidr_blocks = module.vpc.vpc_cidr_block
-    },
+    }
   ]
 }
